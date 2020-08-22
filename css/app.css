@@ -1,0 +1,6 @@
+label[class='error']{
+    color: red;
+}
+input[class*="error"]{
+    border-color: red !important;
+}
