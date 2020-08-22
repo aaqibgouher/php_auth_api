@@ -18,7 +18,7 @@ $(document).ready(function(){
     redirect_if_not_login();
 
     $.ajax({
-        url: "http://localhost/aaqib/php_auth_api/api/home.php",
+        url: api_url("home.php"),
         type: "get",
         data: {
             token: localStorage.getItem("token")

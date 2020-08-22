@@ -8,6 +8,10 @@ function set_message(response, selector){
     }
 }
 
+function api_url(url = ""){
+    return "http://localhost/aaqib/php_auth_api/api/"+url;
+}
+
 function is_login(){
     return (localStorage.getItem("token")) ? true : false;
 }

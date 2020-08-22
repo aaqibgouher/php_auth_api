@@ -29,18 +29,20 @@ $(document).ready(function(){
         var form_data = $(this).serialize();
         
         $.ajax({
-            url: "http://localhost/aaqib/php_auth_api/api/login.php",
+            url: api_url("login.php"),
             type: "get",
             data: form_data,
             dataType: "json",
             success: function(response){
                 // response = JSON.parse(response);
                 set_message(response, "#message");
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("user_id", response.data.user_id);
-                localStorage.setItem("email", response.data.email);
-                localStorage.setItem("full_name", response.data.full_name);
-                window.location.href = "home.php";
+                if(response.status){
+                    localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("user_id", response.data.user_id);
+                    localStorage.setItem("email", response.data.email);
+                    localStorage.setItem("full_name", response.data.full_name);
+                    window.location.href = "home.php";
+                }
             }
         })
     })
